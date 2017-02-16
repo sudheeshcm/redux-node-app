@@ -1,0 +1,22 @@
+{
+  "singleStream": [   
+    {
+      "level": "error",
+      "type": "file",
+      "path": "./logs/reduxNodeAppError.log"
+    }
+  ],
+  "streams": [
+    {
+      "level": "info",
+      "type": "file",
+      "path": "./logs/reduxNodeAppInfo.log"
+    },
+    {
+      "level": "error",
+      "type": "file",
+      "path": "./logs/reduxNodeAppError.log"
+    }
+  ],
+  "isInfoNeeded": false
+}
