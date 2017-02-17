@@ -11,7 +11,6 @@ const gulp = require('gulp');
 const eslint = require('gulp-eslint');
 const babel = require('gulp-babel');
 const nodemon = require('gulp-nodemon');
-//const sourcemaps = require('gulp-sourcemaps');
 const exec = require('child_process').exec;
 const airBnbRules = require('./.eslintrc');
 
@@ -21,9 +20,9 @@ function handleError(err) {
 }
 
 gulp.task('lint', () => {
-  return gulp.src(['./main.js', './lib/**/*.js'])
+  return gulp.src('./lib/**/*.js')
     .pipe(eslint(airBnbRules))
-    .pipe(gulp.dest('./'))
+    .pipe(gulp.dest('./lib'))
     .pipe(eslint.format())
     .pipe(eslint.failOnError());
 });

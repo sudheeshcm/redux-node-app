@@ -1,13 +1,13 @@
 /**
 * @description     Configuration Manager
 */
-'use strict';
+
 import configManager from 'node-config-manager';
 
 const options = {
   configDir: './config',
   env: process.env.NODE_ENV || 'development',
-  camelCase: true
+  camelCase: true,
 };
 
 (function confMgr() {
