@@ -1,8 +1,12 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import { Provider } from 'react-redux'
-import { Router, Route, IndexRoute, hashHistory, browserHistory } from 'react-router'
+import React from "react"
+import ReactDOM from "react-dom"
+import { Provider } from "react-redux"
 
-ReactDOM.render(
-	document.getElementById('app')
-)
+import Layout from "./components/Layout"
+import store from "./store"
+
+const app = document.getElementById('app')
+
+ReactDOM.render(<Provider store={store}>
+  <Layout />
+</Provider>, app);

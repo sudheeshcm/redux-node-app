@@ -4,6 +4,7 @@
 
 import express from 'express';
 import fetchReqData from './controllers/requestDataController';
+// import { homePage } from '../../../client/src/index.html';
 
 const router = express.Router();
 const servicePath = '/demo/v1';
@@ -14,9 +15,7 @@ router.get('/status.html', (req, res) => {
 });
 
 router.get('/', (req, res) => {
-  const response = '<h1>Redux-Node-App is up and running..!</h1>';
-  // render frontend index.html
-  res.status(200).send(response);
+  res.render('./index.html');
 });
 
 router.get(`${servicePath}/fetchReqData`, fetchReqData);
