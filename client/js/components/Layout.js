@@ -26,7 +26,7 @@ export default class Layout extends React.Component {
 
     return <div>
       <div class="table-responsive">
-        <table class=".table-hover data-table">
+        <table class="table-hover table-striped data-table">
           <thead>
             <tr class="tb-header">
               <th>Title</th>

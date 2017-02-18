@@ -8,6 +8,7 @@
  */
 /* eslint-disable */
 const gulp = require('gulp');
+const webpack = require('gulp-webpack');
 const eslint = require('gulp-eslint');
 const babel = require('gulp-babel');
 const nodemon = require('gulp-nodemon');
@@ -19,31 +20,37 @@ function handleError(err) {
   this.emit('end');
 }
 
+gulp.task('webpack', () => {
+return gulp.src('client/js/index.js')
+  .pipe(webpack( require('./webpack.config.js') ))
+  .pipe(gulp.dest('client/static/js'));
+});
+
 gulp.task('lint', () => {
-  return gulp.src('./lib/**/*.js')
+  return gulp.src('./server/**/*.js')
     .pipe(eslint(airBnbRules))
-    .pipe(gulp.dest('./lib'))
+    .pipe(gulp.dest('./server'))
     .pipe(eslint.format())
     .pipe(eslint.failOnError());
 });
 
-gulp.task('copyConfig', () => {
+gulp.task('copyConfig', ['webpack'], () => {
   var stream = gulp.src('./config/**/*')
     .pipe(gulp.dest('./build/config'));
   return stream;
 });
 
-gulp.task('babelifyLib', () => {
-  var stream = gulp.src('./lib/**/*.js')
+gulp.task('babelifyLib', ['babelifyMain'], () => {
+  var stream = gulp.src('./server/**/*.js')
     //.pipe(sourcemaps.init())
     .pipe(babel({
       presets: ['es2015']
     }))
-    .pipe(gulp.dest('./build/lib'));
+    .pipe(gulp.dest('./build/server'));
   return stream;
 });
 
-gulp.task('babelifyMain', () => {
+gulp.task('babelifyMain', ['copyConfig'], () => {
   var stream = gulp.src('main.js')
     .pipe(babel({
       presets: ['es2015']
@@ -52,11 +59,11 @@ gulp.task('babelifyMain', () => {
   return stream;
 });
 
-gulp.task('babelify', ['babelifyMain', 'babelifyLib']);
+gulp.task('babelify', ['babelifyLib']);
 
-gulp.task('buildDev', ['lint', 'copyConfig', 'babelify']);
+gulp.task('buildDev', ['lint', 'babelify']);
 
-gulp.task('build', ['copyConfig', 'babelify']);
+gulp.task('build', ['babelify']);
 
 gulp.task('serveDev', ['buildDev'], (event) => {
   nodemon({
@@ -64,7 +71,7 @@ gulp.task('serveDev', ['buildDev'], (event) => {
     env: {
       'NODE_ENV': 'development'
     },
-    watch: ['./main.js', './lib/**/*.js']
+    watch: ['./main.js', './server/**/*.js']
   });
 });
 

@@ -7,9 +7,9 @@
 import express from 'express';
 import ejs from 'ejs';
 import path from 'path';
-import configManager from './lib/utils/configManager';
-import router from './lib/routes';
-import log from './lib/utils/logger';
+import configManager from './server/utils/configManager';
+import router from './server/routes';
+import log from './server/utils/logger';
 
 const app = express();
 const appConfig = configManager.getConfig('app');

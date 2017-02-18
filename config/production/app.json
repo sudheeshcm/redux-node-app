@@ -2,5 +2,5 @@
     "protocol": "http",
     "host": "",
     "port": 3000,
-    "indexDir": "../../client/src"
+    "indexDir": "../client"
 }
