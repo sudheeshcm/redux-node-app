@@ -22,7 +22,7 @@ export default class DropDown extends React.Component {
     function renderDropdownButton(title, i) {
       return (
         <DropdownButton
-          bsStyle="default" title={status} key={i} id={`status-${i}`}
+          bsStyle="default" class="btn-block" title={status} key={i} id="status-drpdwn"
           onSelect={(evt) => { self.toggleReqData(evt); }}
         >
           <MenuItem eventKey="All" active>All</MenuItem>
@@ -33,7 +33,10 @@ export default class DropDown extends React.Component {
       );
     }
     const buttonsInstance = (
-      <ButtonToolbar>{renderDropdownButton({ status })}</ButtonToolbar>
+      <ButtonToolbar className="status-dropdown btn-block">
+        <div className="status-header">Status</div>
+        {renderDropdownButton({ status })}
+      </ButtonToolbar>
     );
     return (<div>
       { buttonsInstance }

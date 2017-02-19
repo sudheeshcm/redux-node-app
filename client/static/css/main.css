@@ -1,13 +1,43 @@
 .data-table {
   width: 95%;
-  margin: 2%; 
+  margin: 2%;
 }
-.tb-header tb-header{
-  padding: 1%;    
+.req-header {
+  padding: 1%;
+  margin-left: 1%;
+}
+.status-dropdown {
+  width: 95%;
+  padding-left: 1%;
+  padding-right: 1%;
+  margin: 2%;
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 1%;
+  border-radius: 6px;
+}
+.tb-header tb-header {
+  padding: 1%;
 }
 tr.tb-row.Denied {
   background: #eac8c8;
 }
 tr.tb-row.Approved {
-    background: #c2efc8;
+  background: #c2efc8;
+}
+.status-header {
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: -6px;
+    margin-left: 6px;
+    margin-bottom: 2px;
+}
+.btn-group-default, .dropdown-menu {
+  width: 100%;
+}
+#status-drpdwn {
+  text-align: left;
+}
+span.caret {
+    float: right;
+    margin-top: .8%;
 }
