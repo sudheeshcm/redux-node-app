@@ -1,3 +1,4 @@
+import moment from 'moment';
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 
@@ -18,14 +19,17 @@ export default class TableLayout extends React.Component {
   }
   render() {
     const { reqData } = this.props;
-    const mappedReqData = reqData.map(item =>
-      <tr key={item.id} className={`tb-row ${item.status}`}>
+    const mappedReqData = reqData.map((item) => {
+      const createdDate = moment(item.created_at, 'YYYY-MM-DD HH:mm:ss').format('YYYY-MM-DD');
+      const updatedDate = moment(item.updated_at, 'YYYY-MM-DD HH:mm:ss').format('YYYY-MM-DD');
+      return (<tr key={item.id} className={`tb-row ${item.status}`}>
         <th>{item.title}</th>
         <td>{item.status}</td>
-        <td>{item.updated_at}</td>
-        <td>{item.created_at}</td>
+        <td>{updatedDate.toString()}</td>
+        <td>{createdDate.toString()}</td>
         <td>delete</td>
       </tr>);
+    });
 
     return (<div>
       <div className="table-responsive">
