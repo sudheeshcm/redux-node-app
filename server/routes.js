@@ -4,7 +4,6 @@
 
 import express from 'express';
 import fetchReqData from './controllers/requestDataController';
-// import { homePage } from '../../../client/src/index.html';
 
 const router = express.Router();
 const servicePath = '/demo/v1';
@@ -18,5 +17,5 @@ router.get('/', (req, res) => {
   res.render('./index.html');
 });
 
-router.get(`${servicePath}/fetchReqData`, fetchReqData);
+router.get(`${servicePath}/fetchReqData/:status`, fetchReqData);
 export default router;

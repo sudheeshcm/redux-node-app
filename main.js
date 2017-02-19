@@ -5,9 +5,9 @@
  */
 import express from 'express';
 import ejs from 'ejs';
-import path from 'path';
+import path from 'path';   
 import configManager from './server/utils/configManager';
-import router from './server/routes';
+import router from './server/routes';    
 import log from './server/utils/logger';
 
 const app = express();

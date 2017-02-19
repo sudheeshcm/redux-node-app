@@ -26,10 +26,18 @@ return gulp.src('client/js/index.js')
   .pipe(gulp.dest('client/static/js'));
 });
 
-gulp.task('lint', () => {
+gulp.task('lintServer', () => {
   return gulp.src('./server/**/*.js')
     .pipe(eslint(airBnbRules))
     .pipe(gulp.dest('./server'))
+    .pipe(eslint.format())
+    .pipe(eslint.failOnError());
+});
+
+gulp.task('lintClient', ['lintServer'], () => {
+  return gulp.src('./client/js/**/*.js')
+    .pipe(eslint(airBnbRules))
+    .pipe(gulp.dest('./client/js'))
     .pipe(eslint.format())
     .pipe(eslint.failOnError());
 });
@@ -42,7 +50,6 @@ gulp.task('copyConfig', ['webpack'], () => {
 
 gulp.task('babelifyLib', ['babelifyMain'], () => {
   var stream = gulp.src('./server/**/*.js')
-    //.pipe(sourcemaps.init())
     .pipe(babel({
       presets: ['es2015']
     }))
@@ -58,6 +65,8 @@ gulp.task('babelifyMain', ['copyConfig'], () => {
     .pipe(gulp.dest('./build'));
   return stream;
 });
+
+gulp.task('lint', ['lintClient']);
 
 gulp.task('babelify', ['babelifyLib']);
 

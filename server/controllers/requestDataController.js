@@ -17,8 +17,9 @@ function sendErrorResponse(error, res) {
 
 function fetchReqData(req, res) {
   try {
-    log.info('Server procesing request - fetchReqData');
-    const reqData = getDemoData();
+    const status = req.params.status;
+    log.info('Server procesing request - fetchReqData', status);
+    const reqData = getDemoData(status);
     if (reqData) {
       log.info('data found.');
       res.status(200).send({ reqData });

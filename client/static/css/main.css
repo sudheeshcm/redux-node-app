@@ -2,8 +2,12 @@
   width: 95%;
   margin: 2%; 
 }
-
 .tb-header tb-header{
   padding: 1%;    
 }
-
+tr.tb-row.Denied {
+  background: #eac8c8;
+}
+tr.tb-row.Approved {
+    background: #c2efc8;
+}

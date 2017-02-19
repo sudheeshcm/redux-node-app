@@ -1,11 +1,15 @@
 const rules = {
   "fix": true,
-  "extends": "airbnb",
+  "plugins": [
+    "react"
+  ],
+  "extends": ["airbnb", "plugin:react/recommended"],
   "env": {
     "browser": true,
     "node": true,
     "es6": true
   },
+  "parser": "babel-eslint",
   parserOptions: {
     sourceType: "module",
     "ecmaFeatures": {
@@ -32,6 +36,9 @@ const rules = {
       "globalReturn": true,
       "jsx": true
     }
+  },
+  "rules": {
+    "arrow-body-style": [2, "as-needed"]
   }
 };
 
