@@ -1,6 +1,6 @@
 {
     "protocol": "http",
-    "host": "",
+    "host": "localhost",
     "port": 3000,
     "indexDir": "../client"
 }

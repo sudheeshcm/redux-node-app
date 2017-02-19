@@ -10,6 +10,6 @@ Demo redux-node application with express in the backend and react with redux fra
 1. Clone preject: `git clone https://github.com/sudheeshcm/redux-node-app.git`
 2. Change directory: `cd redux-node-app`
 3. Install modules: `npm install`
-4. Run app
+4. Run the application
 	- development mode: `gulp serveDev`
 	- production mode: `gulp serve`

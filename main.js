@@ -3,7 +3,6 @@
  * @description     main.js file which creates a server and listens to
  *                  the port specified.
  */
-'use strict';
 import express from 'express';
 import ejs from 'ejs';
 import path from 'path';
@@ -18,7 +17,7 @@ let port = appConfig.port;
 let host = appConfig.host;
 
 app.use(router);
-app.engine('html', require('ejs').renderFile);
+app.engine('html', ejs.renderFile);
 app.set('view engine', 'html');
 app.set('views', clientDir);
 app.use(express.static(path.join(clientDir, 'static')));
