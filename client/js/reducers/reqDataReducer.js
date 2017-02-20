@@ -1,5 +1,10 @@
+function filterData(data, status) {
+  return data.filter(item => item.status === status);
+}
+
 export default function reducer(state = {
   reqData: [],
+  displayedData: [],
   status: 'All',
   fetching: false,
   fetched: false,
@@ -8,8 +13,22 @@ export default function reducer(state = {
   switch (action.type) {
     case 'TOGGLE_STATUS':
       {
+        let filteredData;
+        switch (action.payload) {
+          case 'All':
+            filteredData = state.reqData;
+            break;
+          case 'Approved':
+          case 'Denied':
+          case 'Pending':
+            filteredData = filterData(state.reqData, action.payload);
+            break;
+          default:
+            return null;
+        }
         return { ...state,
           status: action.payload,
+          displayedData: filteredData,
         };
       }
     case 'FETCH_REQUESTS':
@@ -34,6 +53,7 @@ export default function reducer(state = {
           fetching: false,
           fetched: true,
           reqData: action.payload.reqData,
+          displayedData: action.payload.reqData,
         };
       }
     default:

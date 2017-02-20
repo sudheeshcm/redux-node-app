@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { DropdownButton, MenuItem, ButtonToolbar } from 'react-bootstrap';
 import toggleReqData from '../actions/dropDownActions';
-import fetchDemoData from '../actions/reqDataActions';
 
  @connect(store => ({
    status: store.status,
@@ -14,7 +13,6 @@ export default class DropDown extends React.Component {
   };
   toggleReqData(status) {
     this.props.dispatch(toggleReqData(status));
-    this.props.dispatch(fetchDemoData(status));
   }
   render() {
     const { status } = this.props;
