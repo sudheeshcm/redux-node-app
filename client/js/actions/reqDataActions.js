@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export default function fetchDemoData(status) {
+export function fetchDemoData(status) {
   return function fetchData(dispatch) {
     dispatch({ type: 'FETCH_REQUESTS' });
     axios.get(`/demo/v1/fetchReqData/${status.toLowerCase()}`)
@@ -10,5 +10,11 @@ export default function fetchDemoData(status) {
       .catch((err) => {
         dispatch({ type: 'FETCH_REQUESTS_REJECTED', payload: err });
       });
+  };
+}
+
+export function toggleStatusSort(status, sorted) {
+  return function toggleSort(dispatch) {
+    dispatch({ type: 'TOGGLE_SORT', payload: { status, sorted } });
   };
 }

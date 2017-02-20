@@ -17,11 +17,14 @@ export default class DropDown extends React.Component {
   render() {
     const { status } = this.props;
     const self = this;
+    function toggleStatus(evt) {
+      self.toggleReqData(evt);
+    }
     function renderDropdownButton(title, i) {
       return (
         <DropdownButton
           bsStyle="default" class="btn-block" title={status} key={i} id="status-drpdwn"
-          onSelect={(evt) => { self.toggleReqData(evt); }}
+          onSelect={toggleStatus}
         >
           <MenuItem eventKey="All" active>All</MenuItem>
           <MenuItem eventKey="Approved">Approved</MenuItem>

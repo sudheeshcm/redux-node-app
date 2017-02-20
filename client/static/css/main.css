@@ -25,19 +25,28 @@ tr.tb-row.Approved {
   background: #c2efc8;
 }
 .status-header {
-    font-size: 15px;
-    font-weight: 500;
-    margin-top: -6px;
-    margin-left: 6px;
-    margin-bottom: 2px;
+  font-size: 15px;
+  font-weight: 500;
+  margin-top: -6px;
+  margin-left: 6px;
+  margin-bottom: 2px;
 }
-.btn-group-default, .dropdown-menu {
+.btn-group-default,
+.dropdown-menu {
   width: 100%;
 }
 #status-drpdwn {
   text-align: left;
 }
 span.caret {
-    float: right;
-    margin-top: .8%;
+  float: right;
+  margin-top: .8%;
 }
+.sort-btn {
+  border: transparent;
+  background: transparent;
+}
+.sort-icn {
+  width: 10px;
+}
+button:focus {outline:0;}
