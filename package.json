@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "start": "gulp serve",
-    "runProd": "export NODE_ENV=production && node ./build/main.js"
+    "runProd": "export NODE_ENV=production && node ./build/main.js",
     "dev": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint . --ext .js,.jsx"
