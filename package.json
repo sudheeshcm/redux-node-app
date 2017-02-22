@@ -4,6 +4,7 @@
   "description": "Full stack redux-node-app",
   "main": "main.js",
   "scripts": {
+    "start": "gulp serve",
     "dev": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint . --ext .js,.jsx"
