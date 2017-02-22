@@ -84,13 +84,4 @@ gulp.task('serveDev', ['buildDev'], (event) => {
   });
 });
 
-gulp.task('serve', ['build'], (event) => {
-  exec('npm runProd', (error) => {
-    if (error) {
-      console.log(`Error: ${ error }`);
-    }
-    event(error);
-  });
-});
-
 gulp.task('default', ['serveDev']);
