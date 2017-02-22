@@ -13,7 +13,7 @@ import log from './server/utils/logger';
 const app = express();
 const appConfig = configManager.getConfig('app');
 const clientDir = path.join(__dirname, appConfig.indexDir);
-let port = appConfig.port;
+let port = process.env.PORT || appConfig.port;
 let host = appConfig.host;
 
 app.use(router);
