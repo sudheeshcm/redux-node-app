@@ -24,6 +24,9 @@ module.exports = {
     filename: "main.min.js"
   },
   plugins: debug ? [] : [
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'production')
+    }),
     new webpack.optimize.UglifyJsPlugin({
       sourceMap: false,
       comments: false
