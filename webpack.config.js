@@ -1,10 +1,10 @@
-var debug = process.env.NODE_ENV !== "production";
+var debug = process.env.NODE_ENV !== 'production';
 var webpack = require('webpack');
 var path = require('path');
 
 module.exports = {
   context: path.join(__dirname, 'client'),
-  devtool: debug ? "inline-sourcemap" : null,
+  devtool: debug ? "inline-sourcemap" : false,
   entry: "./js/index.jsx",
   module: {
     loaders: [
@@ -24,8 +24,11 @@ module.exports = {
     filename: "main.min.js"
   },
   plugins: debug ? [] : [
-    new webpack.optimize.DedupePlugin(),
-    new (webpack.optimize.OccurenceOrderPlugin || webpack.optimize.OccurrenceOrderPlugin)(),
-    new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),
+    new webpack.optimize.UglifyJsPlugin({
+      sourceMap: false,
+      comments: false
+    }),
+    new(webpack.optimize.OccurenceOrderPlugin || webpack.optimize.OccurrenceOrderPlugin)(),
+    new webpack.optimize.AggressiveMergingPlugin()
   ],
 };
