@@ -1,8 +1,9 @@
 import moment from 'moment';
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
+import { Button } from 'react-bootstrap';
 
-import { fetchDemoData, toggleStatusSort } from '../actions/reqDataActions';
+import { fetchDemoData, toggleStatusSort, deleteReqRow } from '../actions/reqDataActions';
 
 @connect(store => ({
   displayedData: store.displayedData,
@@ -14,26 +15,34 @@ export default class TableLayout extends React.Component {
     displayedData: PropTypes.func,
     dispatch: PropTypes.func,
     status: PropTypes.string,
-    sorted: PropTypes.bool,
   }
   componentWillMount() {
     this.props.dispatch(fetchDemoData(this.props.status));
   }
+  deleteRow(index) {
+    this.props.dispatch(deleteReqRow(index));
+  }
   render() {
-    const { displayedData, status, sorted, dispatch } = this.props;
-    const mappedReqData = displayedData.map((item) => {
-      const createdDate = moment(item.created_at, 'YYYY-MM-DD HH:mm:ss').format('YYYY-MM-DD');
-      const updatedDate = moment(item.updated_at, 'YYYY-MM-DD HH:mm:ss').format('YYYY-MM-DD');
+    const { displayedData, dispatch } = this.props;
+    const mappedReqData = displayedData.map((item, index) => {
+      const createdDate =
+        moment(item.created_at, 'YYYY-MM-DD HH:mm:ss').format('YYYY-MM-DD');
+      const updatedDate =
+        moment(item.updated_at, 'YYYY-MM-DD HH:mm:ss').format('YYYY-MM-DD');
       return (<tr key={item.id} className={`tb-row ${item.status}`}>
         <th>{item.title}</th>
         <td>{item.status}</td>
         <td>{updatedDate.toString()}</td>
         <td>{createdDate.toString()}</td>
-        <td>delete</td>
+        <td>
+          <Button bsStyle="link" onClick={() => this.deleteRow(index)} className="delete-btn">
+            delete
+          </Button>
+        </td>
       </tr>);
     });
     function toggleSort() {
-      dispatch(toggleStatusSort(status, sorted));
+      dispatch(toggleStatusSort());
     }
     return (<div>
       <div className="table-responsive">

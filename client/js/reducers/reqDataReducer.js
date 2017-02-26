@@ -59,6 +59,14 @@ export default function reducer(state = {
           displayedData: filteredData,
         };
       }
+    case 'DELETE_ROW':
+      {
+        const filteredData = _.clone(state.displayedData);
+        filteredData.splice(action.payload, 1);
+        return { ...state,
+          displayedData: filteredData,
+        };
+      }
     case 'FETCH_REQUESTS':
       {
         return { ...state,
