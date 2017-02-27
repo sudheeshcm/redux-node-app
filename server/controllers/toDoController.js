@@ -41,8 +41,8 @@ export function addTodo(req, res) {
 }
 
 export function deleteTodo(req, res) {
-  Todo.remove({
-    _id: req.params.todoId,
+  Todo.findOneAndRemove({
+    _id: req.params.todoID,
   }, (err) => {
     if (err) {
       sendErrorResponse(err, res);
@@ -51,8 +51,20 @@ export function deleteTodo(req, res) {
   });
 }
 
-/*
 export function updateTodo(req, res) {
-
+  try {
+    Todo.findOneAndUpdate({
+      _id: req.body.todoID,
+    }, {
+      text: req.body.text,
+      done: req.body.done,
+    }, {}, (err) => {
+      if (err) {
+        sendErrorResponse(err, res);
+      }
+      fetchAllTodos(res);
+    });
+  } catch (error) {
+    sendErrorResponse(error, res);
+  }
 }
-*/
