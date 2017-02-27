@@ -49,4 +49,30 @@ span.caret {
 .sort-icn {
   width: 10px;
 }
-button:focus {outline:0;}
+button:focus {
+  outline: 0;
+}
+.app-header {
+  margin: auto 35%;
+  margin-top: 5%;
+  z-index: 1;
+  color: gainsboro;
+}
+.nav li a.active {
+  color: white;
+}
+.add-todo-ctrl {
+  width: 80%;
+}
+.add-todo-ctrl div {
+  padding: 2px;
+  width: 40%;
+  display: inline-block;
+}
+footer {
+  margin: auto 40%;
+  text-align: center;
+}
+.delete-icn {
+  width: 15px;
+}

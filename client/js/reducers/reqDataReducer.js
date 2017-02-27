@@ -26,6 +26,7 @@ export default function reducer(state = {
   fetching: false,
   fetched: false,
   error: null,
+  todos: [],
 }, action) {
   switch (action.type) {
     case 'TOGGLE_STATUS':
@@ -67,6 +68,30 @@ export default function reducer(state = {
           displayedData: filteredData,
         };
       }
+    case 'ADD_TODO_FULFILLED':
+      {
+        return { ...state,
+          todos: action.payload,
+        };
+      }
+    case 'ADD_TODO_REJECTED':
+      {
+        return { ...state,
+          error: action.payload,
+        };
+      }
+    case 'DELETE_TODO_FULFILLED':
+      {
+        return { ...state,
+          todos: action.payload,
+        };
+      }
+    case 'DELETE_TODO_REJECTED':
+      {
+        return { ...state,
+          error: action.payload,
+        };
+      }
     case 'FETCH_REQUESTS':
       {
         return { ...state,
@@ -90,6 +115,30 @@ export default function reducer(state = {
           fetched: true,
           reqData: action.payload.reqData,
           displayedData: _.clone(action.payload.reqData),
+        };
+      }
+    case 'FETCH_TODOS':
+      {
+        return { ...state,
+          fetching: true,
+          fetched: false,
+        };
+      }
+    case 'FETCH_TODOS_ERROR':
+      {
+        return { ...state,
+          fetching: false,
+          fetched: false,
+          error: action.payload,
+        };
+      }
+    case 'FETCH_TODOS_FULFILLED':
+      {
+        return {
+          ...state,
+          fetching: false,
+          fetched: true,
+          todos: action.payload,
         };
       }
     default:
