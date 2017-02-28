@@ -5,7 +5,7 @@ var path = require('path');
 module.exports = {
   context: path.join(__dirname, 'client'),
   devtool: debug ? "inline-sourcemap" : false,
-  entry: "./js/index.jsx",
+  entry: "./js/index",
   module: {
     loaders: [
       {
@@ -18,6 +18,9 @@ module.exports = {
         }
       }
     ]
+  },
+  resolve: {
+    extensions: ['','.js', '.jsx'],
   },
   output: {
     path: __dirname + "./client/static/js",

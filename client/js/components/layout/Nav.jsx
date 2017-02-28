@@ -18,25 +18,41 @@ export default class Nav extends React.Component {
     const navClass = collapsed ? 'collapse' : '';
     const isActive = this.context.router.isActive('/', true);
     return (
-      <nav className="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <nav
+        className="navbar navbar-inverse navbar-fixed-top"
+        role="navigation"
+      >
         <div className="container">
           <div className="navbar-header">
-            <button type="button" className="navbar-toggle" onClick={() => this.toggleCollapse()} >
+            <button
+              type="button"
+              className="navbar-toggle"
+              onClick={() => this.toggleCollapse()}
+            >
               <span className="sr-only">Toggle navigation</span>
               <span className="icon-bar" />
               <span className="icon-bar" />
               <span className="icon-bar" />
             </button>
           </div>
-          <div className={`navbar-collapse ${navClass}`} id="bs-example-navbar-collapse-1">
+          <div
+            className={`navbar-collapse ${navClass}`}
+            id="bs-example-navbar-collapse-1"
+          >
             <ul className="nav navbar-nav">
               <li>
-                <IndexLink to="/" className={isActive ? 'active' : ''} onClick={() => this.toggleCollapse()}>
+                <IndexLink
+                  to="/" className={isActive ? 'active' : ''}
+                  onClick={() => this.toggleCollapse()}
+                >
                   Todos
                 </IndexLink>
               </li>
               <li>
-                <Link to="requests" className={isActive ? '' : 'active'} onClick={() => this.toggleCollapse()}>Requests
+                <Link
+                  to="requests" className={isActive ? '' : 'active'}
+                  onClick={() => this.toggleCollapse()}
+                >Requests
                 </Link>
               </li>
             </ul>

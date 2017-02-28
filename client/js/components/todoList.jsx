@@ -30,20 +30,30 @@ export default class TodoList extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     this.props.dispatch(addTodo(this.state.value));
+    this.setState({ value: '' });
   }
   render() {
     const { todos } = this.props;
-    const mappedTodos = todos.map((item) => {
-      return (<tr key={item._id}>
+    const mappedTodos = todos.map(item => (
+      <tr key={item._id}>
         <td>{item.text}</td>
         <td>{item.done.toString()}</td>
         <td>
-          <Button bsStyle="link" onClick={() => this.deleteTodo(item._id)} className="delete-btn">
-            <img className="delete-icn" src="images/delete-icon.png" role="presentation" />
+          <Button
+            bsStyle="link"
+            onClick={() => this.deleteTodo(item._id)}
+            className="delete-btn"
+          >
+            <img
+              className="delete-icn"
+              src="images/delete-icon.png"
+              role="presentation"
+            />
           </Button>
         </td>
-      </tr>);
-    });
+      </tr>
+      ),
+    );
     return (<div>
       <div className="add-todo-ctrl">
         <form onSubmit={this.handleSubmit}>
@@ -56,7 +66,11 @@ export default class TodoList extends React.Component {
             />
           </div>
           <div>
-            <Button bsStyle="primary" className="add-todo-btn" type="submit">
+            <Button
+              bsStyle="primary"
+              className="add-todo-btn"
+              type="submit"
+            >
               Add Todo
             </Button>
           </div>

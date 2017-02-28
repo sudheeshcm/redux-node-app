@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
-import Footer from '../components/layout/Footer.jsx';
-import Nav from '../components/layout/Nav.jsx';
+import Footer from '../components/layout/Footer';
+import Nav from '../components/layout/Nav';
 
 class Layout extends React.Component {
   static propTypes = {

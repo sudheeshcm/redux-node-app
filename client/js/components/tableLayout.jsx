@@ -3,7 +3,8 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Button } from 'react-bootstrap';
 
-import { fetchDemoData, toggleStatusSort, deleteReqRow } from '../actions/reqDataActions';
+import { fetchDemoData, toggleStatusSort,
+  deleteReqRow } from '../actions/reqDataActions';
 
 @connect(store => ({
   displayedData: store.displayedData,
@@ -35,7 +36,10 @@ export default class TableLayout extends React.Component {
         <td>{updatedDate.toString()}</td>
         <td>{createdDate.toString()}</td>
         <td>
-          <Button bsStyle="link" onClick={() => this.deleteRow(index)} className="delete-btn">
+          <Button
+            bsStyle="link" onClick={() => this.deleteRow(index)}
+            className="delete-btn"
+          >
             delete
           </Button>
         </td>
@@ -53,7 +57,10 @@ export default class TableLayout extends React.Component {
               <th>
                 <button className="sort-btn" onClick={toggleSort}>
                   Status
-                  <img className="sort-icn" src="images/sorticon.png" role="presentation" />
+                  <img
+                    className="sort-icn" src="images/sorticon.png"
+                    role="presentation"
+                  />
                 </button>
               </th>
               <th>Updated</th>

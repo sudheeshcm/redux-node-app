@@ -38,7 +38,9 @@ const rules = {
     }
   },
   "rules": {
-    "arrow-body-style": [2, "as-needed"]
+    "arrow-body-style": [2, "as-needed"],
+    "no-underscore-dangle": [2, { "allow": ["_id"] }],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
   }
 };
 

@@ -4,9 +4,9 @@ import { Provider } from 'react-redux';
 import { Router, Route, hashHistory, IndexRoute } from 'react-router';
 
 import store from './store';
-import Layout from './pages/layout.jsx';
-import Todos from './pages/todos.jsx';
-import Requests from './pages/requests.jsx';
+import Layout from './pages/layout';
+import Todos from './pages/todos';
+import Requests from './pages/requests';
 
 const app = document.getElementById('app');
 

@@ -1,7 +1,7 @@
 
 import React from 'react';
-import TableLayout from '../components/tableLayout.jsx';
-import DropDown from '../components/statusDropDown.jsx';
+import TableLayout from '../components/tableLayout';
+import DropDown from '../components/statusDropDown';
 
 export default class Requests extends React.Component {
   componentWillMount() {
