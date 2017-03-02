@@ -24,6 +24,6 @@ router.get(`${servicePath}/fetchReqData/:status`, fetchReqData);
 router.get(`${servicePath}/getTodos`, getTodos);
 router.post(`${servicePath}/addTodo`, addTodo);
 router.delete(`${servicePath}/deleteTodo/:todoID`, deleteTodo);
-router.put(`${servicePath}/updateToDo`, updateTodo);
+router.put(`${servicePath}/updateTodo`, updateTodo);
 
 export default router;

@@ -29,12 +29,12 @@ export function addTodo(text) {
         text: trimmedText,
       }).then((response) => {
         dispatch({
-          type: 'ADD_TODO_FULFILLED',
+          type: 'FILL_TODO_FULFILLED',
           payload: response.data,
         });
       }).catch((err) => {
         dispatch({
-          type: 'ADD_TODO_REJECTED',
+          type: 'FILL_TODO_REJECTED',
           payload: err,
         });
       });
@@ -42,6 +42,28 @@ export function addTodo(text) {
   };
 }
 
+export function updateTodo(id, text, done) {
+  return function updateItem(dispatch) {
+    const trimmedText = text.trim();
+    if (trimmedText) {
+      axios.put('/demo/v1/updateTodo', {
+        todoID: id,
+        text: trimmedText,
+        done,
+      }).then((response) => {
+        dispatch({
+          type: 'FILL_TODO_FULFILLED',
+          payload: response.data,
+        });
+      }).catch((err) => {
+        dispatch({
+          type: 'FILL_TODO_REJECTED',
+          payload: err,
+        });
+      });
+    }
+  };
+}
 
 export function deleteTodo(id) {
   return function deleteItem(dispatch) {

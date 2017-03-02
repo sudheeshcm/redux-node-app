@@ -70,9 +70,57 @@ button:focus {
   display: inline-block;
 }
 footer {
-  margin: auto 40%;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
   text-align: center;
 }
 .delete-icn {
   width: 15px;
+}
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+body {
+  position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
+}
+.todo-item span {
+  display: inline-block;
+  width: 50%;
+}
+.update-todo-form div {
+  padding: 2px;
+  display: inline-block;
+}
+#todo-updt-input {
+  width: 70%;
+}
+#todo-updt-btn {
+  width: 30%;
+}
+.todo-item-display {
+  background-color: transparent;
+}
+.hide-el {
+  display: none !important;
+}
+.todo-updt-btn button {
+  font-size: 20px;
+  width: 35%;
+  outline: 0;
+}
+.status-btn:focus {
+  outline: 0;
+  text-decoration: none;
 }

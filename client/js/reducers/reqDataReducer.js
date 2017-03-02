@@ -68,13 +68,13 @@ export default function reducer(state = {
           displayedData: filteredData,
         };
       }
-    case 'ADD_TODO_FULFILLED':
+    case 'FILL_TODO_FULFILLED':
       {
         return { ...state,
           todos: action.payload,
         };
       }
-    case 'ADD_TODO_REJECTED':
+    case 'FILL_TODO_REJECTED':
       {
         return { ...state,
           error: action.payload,
