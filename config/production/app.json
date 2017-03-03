@@ -3,5 +3,5 @@
     "host": "0.0.0.0",
     "port": 3000,
     "indexDir": "../client",
-    "dbURL": "mongodb://sudheeshcmohan:Sudheesh13@ds113580.mlab.com:13580/heroku_z6qdd1qd"
+    "dbURL": "mongodb://heroku_z6qdd1qd:aeqgpnroornu0ahnkqsmcu7n5k@ds113580.mlab.com:13580/heroku_z6qdd1qd"
 }
